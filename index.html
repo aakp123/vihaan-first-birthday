@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vihaan Patel Turns One! | 1st Birthday Celebration</title>
+  <title>Vihaan is One-osaurus! | 1st Birthday Celebration</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-cream: #FAF7F2;
+      --bg-cream: #F5F7F0;
       --card-white: #FFFFFF;
-      --sage-dark: #4A6B5D;
-      --sage-mid: #688B7C;
-      --sage-light: #E8F0EC;
-      --gold-warm: #E2A856;
-      --terracotta: #D97B59;
-      --text-main: #2D3632;
-      --text-muted: #64706A;
-      --border-soft: #E5E0D8;
+      --dino-green: #3B5E4E;
+      --dino-mid: #527A68;
+      --dino-light: #E4ECE7;
+      --amber-gold: #D99B26;
+      --terracotta: #C86D51;
+      --text-main: #2C3530;
+      --text-muted: #627068;
+      --border-soft: #DDE5E0;
     }
 
     * {
@@ -31,9 +31,9 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-cream);
       background-image: 
-        radial-gradient(circle at 15% 20%, rgba(226, 168, 86, 0.14) 0%, transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(74, 107, 93, 0.12) 0%, transparent 25%),
-        radial-gradient(circle at 50% 85%, rgba(217, 123, 89, 0.12) 0%, transparent 30%);
+        radial-gradient(circle at 15% 20%, rgba(217, 155, 38, 0.12) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(59, 94, 78, 0.12) 0%, transparent 25%),
+        radial-gradient(circle at 50% 85%, rgba(200, 109, 81, 0.1) 0%, transparent 30%);
       color: var(--text-main);
       min-height: 100vh;
       padding: 2rem 1rem 4rem;
@@ -58,7 +58,7 @@
     #envelope-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(250, 247, 242, 0.96);
+      background: rgba(245, 247, 240, 0.96);
       backdrop-filter: blur(6px);
       z-index: 50;
       display: flex;
@@ -102,13 +102,12 @@
       position: relative;
       width: 100%;
       height: 100%;
-      background: var(--sage-dark);
+      background: var(--dino-green);
       border-radius: 14px;
-      box-shadow: 0 22px 45px rgba(45, 54, 50, 0.22);
+      box-shadow: 0 22px 45px rgba(44, 53, 48, 0.22);
       overflow: hidden;
     }
 
-    /* Inner Card peeking out */
     .envelope-letter {
       position: absolute;
       left: 14px;
@@ -130,7 +129,7 @@
 
     .envelope-letter span {
       font-family: 'Fredoka', sans-serif;
-      color: var(--sage-dark);
+      color: var(--dino-green);
       font-size: 1.2rem;
       font-weight: 700;
     }
@@ -145,7 +144,6 @@
       transform: translateY(-95px);
     }
 
-    /* Front Pocket Flaps */
     .envelope-pocket {
       position: absolute;
       inset: 0;
@@ -157,7 +155,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: var(--sage-mid);
+      background: var(--dino-mid);
       clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
     }
 
@@ -165,18 +163,17 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: var(--sage-dark);
+      background: var(--dino-green);
       clip-path: polygon(0 100%, 50% 48%, 100% 100%);
     }
 
-    /* Top Flap */
     .envelope-flap {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 115px;
-      background: #3D5B4E;
+      background: #2D493C;
       clip-path: polygon(0 0, 50% 100%, 100% 0);
       transform-origin: top center;
       transition: transform 0.6s ease;
@@ -188,7 +185,6 @@
       z-index: 1;
     }
 
-    /* Wax Seal */
     .wax-seal {
       position: absolute;
       top: 86px;
@@ -196,9 +192,9 @@
       transform: translateX(-50%);
       width: 54px;
       height: 54px;
-      background: radial-gradient(circle at 30% 30%, #F2BE6B, var(--gold-warm));
+      background: radial-gradient(circle at 30% 30%, #F3C65D, var(--amber-gold));
       border-radius: 50%;
-      border: 3px solid #C98E3B;
+      border: 3px solid #B57D1B;
       box-shadow: 0 6px 14px rgba(0,0,0,0.22);
       z-index: 5;
       display: flex;
@@ -208,7 +204,6 @@
       font-weight: 700;
       font-size: 1.15rem;
       color: #FFFDF9;
-      letter-spacing: 0.04em;
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
@@ -221,8 +216,8 @@
       margin-top: 1.5rem;
       font-size: 0.95rem;
       font-weight: 600;
-      color: var(--sage-dark);
-      background: var(--sage-light);
+      color: var(--dino-green);
+      background: var(--dino-light);
       padding: 0.45rem 1.1rem;
       border-radius: 999px;
       animation: pulse 1.8s infinite;
@@ -233,14 +228,13 @@
       50% { transform: scale(1.05); }
     }
 
-    /* Replay Button */
     .replay-btn {
       position: fixed;
       top: 1rem;
       right: 1rem;
       background: var(--card-white);
       border: 1.5px solid var(--border-soft);
-      color: var(--sage-dark);
+      color: var(--dino-green);
       font-family: inherit;
       font-size: 0.82rem;
       font-weight: 600;
@@ -253,10 +247,9 @@
     }
 
     .replay-btn:hover {
-      background: var(--sage-light);
+      background: var(--dino-light);
     }
 
-    /* Main Content Container */
     .container {
       width: 100%;
       max-width: 580px;
@@ -273,13 +266,12 @@
       transform: translateY(0) scale(1);
     }
 
-    /* Invitation Card */
     .invite-card {
       background: var(--card-white);
       border-radius: 28px;
       padding: 2.75rem 2rem;
       text-align: center;
-      box-shadow: 0 18px 40px rgba(45, 54, 50, 0.07);
+      box-shadow: 0 18px 40px rgba(44, 53, 48, 0.07);
       border: 2px solid var(--border-soft);
       position: relative;
       overflow: hidden;
@@ -292,13 +284,13 @@
       left: 0;
       right: 0;
       height: 10px;
-      background: linear-gradient(90deg, var(--sage-dark), var(--gold-warm), var(--terracotta));
+      background: linear-gradient(90deg, var(--dino-green), var(--amber-gold), var(--terracotta));
     }
 
     .badge {
       display: inline-block;
-      background-color: var(--sage-light);
-      color: var(--sage-dark);
+      background-color: var(--dino-light);
+      color: var(--dino-green);
       font-weight: 700;
       font-size: 0.85rem;
       letter-spacing: 0.08em;
@@ -322,9 +314,9 @@
 
     h1 {
       font-family: 'Fredoka', sans-serif;
-      font-size: 2.6rem;
+      font-size: 2.5rem;
       font-weight: 700;
-      color: var(--sage-dark);
+      color: var(--dino-green);
       line-height: 1.15;
       margin-bottom: 0.5rem;
     }
@@ -381,19 +373,18 @@
       color: var(--text-main);
     }
 
-    /* RSVP Form Card */
     .rsvp-card {
       background: var(--card-white);
       border-radius: 28px;
       padding: 2.25rem 2rem;
-      box-shadow: 0 18px 40px rgba(45, 54, 50, 0.07);
+      box-shadow: 0 18px 40px rgba(44, 53, 48, 0.07);
       border: 2px solid var(--border-soft);
     }
 
     .rsvp-card h2 {
       font-family: 'Fredoka', sans-serif;
       font-size: 1.75rem;
-      color: var(--sage-dark);
+      color: var(--dino-green);
       margin-bottom: 0.35rem;
       text-align: center;
     }
@@ -409,6 +400,12 @@
       margin-bottom: 1.25rem;
     }
 
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
     label {
       display: block;
       font-weight: 600;
@@ -417,7 +414,7 @@
       color: var(--text-main);
     }
 
-    input, select, textarea {
+    input, select {
       width: 100%;
       padding: 0.85rem 1rem;
       border-radius: 14px;
@@ -429,9 +426,9 @@
       transition: border-color 0.2s, background-color 0.2s;
     }
 
-    input:focus, select:focus, textarea:focus {
+    input:focus, select:focus {
       outline: none;
-      border-color: var(--sage-dark);
+      border-color: var(--dino-green);
       background: #FFFFFF;
     }
 
@@ -467,9 +464,9 @@
     }
 
     .radio-option input:checked + .radio-label {
-      background: var(--sage-light);
-      border-color: var(--sage-dark);
-      color: var(--sage-dark);
+      background: var(--dino-light);
+      border-color: var(--dino-green);
+      color: var(--dino-green);
     }
 
     button.submit-btn {
@@ -477,7 +474,7 @@
       padding: 1rem;
       border: none;
       border-radius: 14px;
-      background: var(--sage-dark);
+      background: var(--dino-green);
       color: #FFFFFF;
       font-family: 'Fredoka', sans-serif;
       font-size: 1.15rem;
@@ -489,7 +486,7 @@
     }
 
     button.submit-btn:hover {
-      background: #3B574B;
+      background: #2D493C;
       transform: translateY(-1px);
     }
 
@@ -514,7 +511,7 @@
     .confirmation-box h3 {
       font-family: 'Fredoka', sans-serif;
       font-size: 1.6rem;
-      color: var(--sage-dark);
+      color: var(--dino-green);
       margin-bottom: 0.5rem;
     }
 
@@ -527,41 +524,36 @@
       h1 { font-size: 2.1rem; }
       .invite-card, .rsvp-card { padding: 2rem 1.35rem; }
       .envelope-wrapper { width: 290px; height: 190px; }
+      .form-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Firecracker / Fireworks Canvas -->
   <canvas id="fireworks-canvas"></canvas>
+  <button class="replay-btn" onclick="replayAnimation()">🦖 Replay Invite</button>
 
-  <!-- Replay Animation Button -->
-  <button class="replay-btn" onclick="replayAnimation()" title="Replay Envelope Animation">✉️ Replay Invite</button>
-
-  <!-- Flying Envelope Overlay -->
   <div id="envelope-overlay" onclick="openEnvelope()">
     <div class="envelope-wrapper" id="envelope">
       <div class="envelope-flap"></div>
       <div class="wax-seal">VP</div>
       <div class="envelope-body">
         <div class="envelope-letter">
-          <span>Vihaan is Turning 1!</span>
+          <span>Vihaan is One-osaurus!</span>
           <small>January 30, 2027</small>
         </div>
         <div class="envelope-pocket"></div>
       </div>
     </div>
-    <div class="tap-hint">Tap envelope to open ✨</div>
+    <div class="tap-hint">Tap to open invite 🌿</div>
   </div>
 
-  <!-- Main Invitation & RSVP Content -->
   <main class="container" id="main-container">
-    <!-- Invitation Card -->
     <section class="invite-card">
-      <span class="badge">You're Invited!</span>
-      <span class="hero-icon">🧸🎈🎂</span>
-      <h1>Vihaan Patel<br>is Turning One!</h1>
-      <p class="subtitle">Join us for brunch, cake, and sweet memories as we celebrate Vihaan’s very first trip around the sun.</p>
+      <span class="badge">Roar! You're Invited</span>
+      <span class="hero-icon">🦖🦕🌴</span>
+      <h1>Vihaan is<br>One-osaurus!</h1>
+      <p class="subtitle">Stomp on over for brunch, cake, and prehistoric fun as we celebrate Vihaan’s very first trip around the sun.</p>
 
       <div class="details-grid">
         <div class="detail-item">
@@ -576,7 +568,7 @@
           <div class="detail-icon">⏰</div>
           <div>
             <div class="detail-label">Time</div>
-            <div class="detail-value">10:30 AM – 1:00 PM</div>
+            <div class="detail-value">10:00 AM – 1:00 PM</div>
           </div>
         </div>
 
@@ -591,11 +583,10 @@
       </div>
     </section>
 
-    <!-- RSVP Form Card -->
     <section class="rsvp-card">
       <div id="form-wrapper">
         <h2>RSVP</h2>
-        <p class="rsvp-sub">Kindly let us know if you can make it!</p>
+        <p class="rsvp-sub">Let us know if your little dino can make it!</p>
 
         <form id="rsvp-form">
           <div class="form-group">
@@ -604,8 +595,8 @@
           </div>
 
           <div class="form-group">
-            <label for="email">Email Address (for confirmation) *</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            <label for="email">Email Address (Optional — for confirmation)</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" />
           </div>
 
           <div class="form-group">
@@ -613,41 +604,46 @@
             <div class="radio-group">
               <label class="radio-option">
                 <input type="radio" name="attending" value="Yes" checked onchange="toggleGuests(true)" />
-                <span class="radio-label">🎉 Joyfully Accepts</span>
+                <span class="radio-label">🦖 Joyfully Accepts</span>
               </label>
               <label class="radio-option">
                 <input type="radio" name="attending" value="No" onchange="toggleGuests(false)" />
-                <span class="radio-label">💌 Regretfully Declines</span>
+                <span class="radio-label">🍂 Regretfully Declines</span>
               </label>
             </div>
           </div>
 
-          <div class="form-group" id="guests-group">
-            <label for="guests">Total Guests in Your Party (including kids) *</label>
-            <select id="guests" name="guests">
-              <option value="1">1 Guest</option>
-              <option value="2" selected>2 Guests</option>
-              <option value="3">3 Guests</option>
-              <option value="4">4 Guests</option>
-              <option value="5">5 Guests</option>
-              <option value="6">6 Guests</option>
-            </select>
-          </div>
+          <div class="form-row" id="guest-counts">
+            <div class="form-group">
+              <label for="adults">Adults</label>
+              <select id="adults" name="adults">
+                <option value="1">1 Adult</option>
+                <option value="2" selected>2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+              </select>
+            </div>
 
-          <div class="form-group">
-            <label for="notes">Dietary Restrictions or Note for Vihaan (Optional)</label>
-            <textarea id="notes" name="notes" rows="2" placeholder="Any allergies, highchair needs, or birthday wishes..."></textarea>
+            <div class="form-group">
+              <label for="kids">Kids</label>
+              <select id="kids" name="kids">
+                <option value="0" selected>0 Kids</option>
+                <option value="1">1 Kid</option>
+                <option value="2">2 Kids</option>
+                <option value="3">3 Kids</option>
+                <option value="4">4 Kids</option>
+              </select>
+            </div>
           </div>
 
           <button type="submit" class="submit-btn" id="submit-btn">Send RSVP</button>
         </form>
       </div>
 
-      <!-- Success State -->
       <div class="confirmation-box" id="confirmation-box">
-        <span class="check-icon">🥳</span>
+        <span class="check-icon">🦕</span>
         <h3>Thank You for Your RSVP!</h3>
-        <p id="confirmation-message">We've sent a confirmation email with all the party details to your inbox.</p>
+        <p id="confirmation-message">We've recorded your response. Can't wait to celebrate!</p>
       </div>
     </section>
   </main>
@@ -656,7 +652,6 @@
     // UPDATE HERE: Paste your Google Apps Script Web App URL inside the quotes below
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxreZzZ3vtGEem2AZdjZ74ht5tZRKEoCW3fGzjaceRuWfsf3Rn8CahLLs2DQ8Lak1nn/exec";
 
-    /* --- ENVELOPE & FIRECRACKERS ANIMATION --- */
     const canvas = document.getElementById('fireworks-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
@@ -670,7 +665,7 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    const colors = ['#E2A856', '#D97B59', '#4A6B5D', '#F4C95D', '#E88D67', '#7BA08F'];
+    const colors = ['#D99B26', '#C86D51', '#3B5E4E', '#F3C65D', '#E2886B', '#527A68'];
 
     function createFirecrackerBurst(x, y, count = 65) {
       for (let i = 0; i < count; i++) {
@@ -693,9 +688,7 @@
     function launchCelebrationFirecrackers() {
       const w = canvas.width;
       const h = canvas.height;
-      // Central main burst
       createFirecrackerBurst(w * 0.5, h * 0.42, 85);
-      // Staggered side bursts
       setTimeout(() => createFirecrackerBurst(w * 0.25, h * 0.32, 60), 220);
       setTimeout(() => createFirecrackerBurst(w * 0.75, h * 0.35, 60), 380);
       setTimeout(() => createFirecrackerBurst(w * 0.5, h * 0.25, 70), 580);
@@ -708,8 +701,8 @@
         const p = particles[i];
         p.x += p.vx;
         p.y += p.vy;
-        p.vy += 0.14; // gravity
-        p.vx *= 0.97; // air drag
+        p.vy += 0.14;
+        p.vx *= 0.97;
         p.alpha -= p.decay;
 
         if (p.alpha <= 0) {
@@ -722,10 +715,8 @@
         ctx.fillStyle = p.color;
         ctx.beginPath();
         if (p.isSpark) {
-          // Elongated firecracker spark trail
           ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         } else {
-          // Confetti square
           ctx.rect(p.x - p.size, p.y - p.size, p.size * 1.8, p.size * 1.8);
         }
         ctx.fill();
@@ -747,15 +738,8 @@
       const overlay = document.getElementById('envelope-overlay');
       const container = document.getElementById('main-container');
 
-      // 1. Open flap & slide letter up
       envelope.classList.add('open');
-
-      // 2. Trigger firecrackers as flap opens
-      setTimeout(() => {
-        launchCelebrationFirecrackers();
-      }, 300);
-
-      // 3. Fade out envelope overlay and reveal invite card
+      setTimeout(() => { launchCelebrationFirecrackers(); }, 300);
       setTimeout(() => {
         overlay.classList.add('hidden');
         container.classList.add('revealed');
@@ -776,24 +760,20 @@
       envelope.classList.remove('open');
       overlay.classList.remove('hidden');
 
-      // Re-trigger fly-in CSS animation
       envelope.style.animation = 'none';
-      envelope.offsetHeight; /* trigger reflow */
+      envelope.offsetHeight;
       envelope.style.animation = null;
 
-      // Auto-open again after flying in
       setTimeout(openEnvelope, 1600);
     }
 
-    // Automatically open the envelope shortly after it flies in
     window.addEventListener('DOMContentLoaded', () => {
       setTimeout(openEnvelope, 1600);
     });
 
-    /* --- RSVP FORM SUBMISSION --- */
     function toggleGuests(isAttending) {
-      const guestsGroup = document.getElementById('guests-group');
-      guestsGroup.style.display = isAttending ? 'block' : 'none';
+      const guestCounts = document.getElementById('guest-counts');
+      guestCounts.style.display = isAttending ? 'grid' : 'none';
     }
 
     document.getElementById('rsvp-form').addEventListener('submit', function(e) {
@@ -808,8 +788,8 @@
         name: document.getElementById('name').value.trim(),
         email: document.getElementById('email').value.trim(),
         attending: attendingValue,
-        guests: attendingValue === "Yes" ? document.getElementById('guests').value : 0,
-        notes: document.getElementById('notes').value.trim()
+        adults: attendingValue === "Yes" ? document.getElementById('adults').value : 0,
+        kids: attendingValue === "Yes" ? document.getElementById('kids').value : 0
       };
 
       fetch(SCRIPT_URL, {
@@ -826,7 +806,11 @@
         const confirmMsg = document.getElementById('confirmation-message');
         
         if (attendingValue === "No") {
-          confirmMsg.textContent = "We'll miss you! A confirmation of your response has been emailed to you.";
+          confirmMsg.textContent = "We'll miss you! Thanks for letting us know.";
+        } else if (payload.email) {
+          confirmMsg.textContent = "We've recorded your RSVP and sent a confirmation email to your inbox!";
+        } else {
+          confirmMsg.textContent = "We've successfully recorded your RSVP. See you there!";
         }
         confirmBox.style.display = 'block';
         launchCelebrationFirecrackers();
