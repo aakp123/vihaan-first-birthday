@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vihaan is One-osaurus! | 1st Birthday Celebration</title>
+  <title>Vihaan is Turning One! | Dino Adventure</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-cream: #F5F7F0;
+      --bg-cream: #FAF6ED;
       --card-white: #FFFFFF;
       --dino-green: #3B5E4E;
-      --dino-mid: #527A68;
-      --dino-light: #E4ECE7;
+      --dino-border: #87A895;
       --amber-gold: #D99B26;
       --terracotta: #C86D51;
       --text-main: #2C3530;
       --text-muted: #627068;
-      --border-soft: #DDE5E0;
+      --border-soft: #E2ECE5;
     }
 
     * {
@@ -43,7 +42,6 @@
       overflow-x: hidden;
     }
 
-    /* Firecracker Canvas Overlay */
     #fireworks-canvas {
       position: fixed;
       top: 0;
@@ -54,11 +52,11 @@
       z-index: 100;
     }
 
-    /* Envelope Stage Overlay */
+    /* Envelope Overlay Animation */
     #envelope-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(245, 247, 240, 0.96);
+      background: rgba(250, 246, 237, 0.96);
       backdrop-filter: blur(6px);
       z-index: 50;
       display: flex;
@@ -84,18 +82,9 @@
     }
 
     @keyframes flyIn {
-      0% {
-        opacity: 0;
-        transform: translate(-120vw, 40vh) rotate(-25deg) scale(0.5);
-      }
-      70% {
-        opacity: 1;
-        transform: translate(12px, -10px) rotate(4deg) scale(1.03);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(0, 0) rotate(0deg) scale(1);
-      }
+      0% { opacity: 0; transform: translate(-120vw, 40vh) rotate(-25deg) scale(0.5); }
+      70% { opacity: 1; transform: translate(12px, -10px) rotate(4deg) scale(1.03); }
+      100% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
     }
 
     .envelope-body {
@@ -155,7 +144,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: var(--dino-mid);
+      background: #4A7361;
       clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%);
     }
 
@@ -173,7 +162,7 @@
       left: 0;
       width: 100%;
       height: 115px;
-      background: #2D493C;
+      background: #2E4B3E;
       clip-path: polygon(0 0, 50% 100%, 100% 0);
       transform-origin: top center;
       transition: transform 0.6s ease;
@@ -217,7 +206,7 @@
       font-size: 0.95rem;
       font-weight: 600;
       color: var(--dino-green);
-      background: var(--dino-light);
+      background: #E4ECE7;
       padding: 0.45rem 1.1rem;
       border-radius: 999px;
       animation: pulse 1.8s infinite;
@@ -233,7 +222,7 @@
       top: 1rem;
       right: 1rem;
       background: var(--card-white);
-      border: 1.5px solid var(--border-soft);
+      border: 1.5px solid var(--dino-border);
       color: var(--dino-green);
       font-family: inherit;
       font-size: 0.82rem;
@@ -247,12 +236,13 @@
     }
 
     .replay-btn:hover {
-      background: var(--dino-light);
+      background: #E4ECE7;
     }
 
+    /* Main Container */
     .container {
       width: 100%;
-      max-width: 580px;
+      max-width: 620px;
       display: flex;
       flex-direction: column;
       gap: 1.75rem;
@@ -266,42 +256,53 @@
       transform: translateY(0) scale(1);
     }
 
+    /* Styled Invitation Card Matching Reference */
     .invite-card {
       background: var(--card-white);
       border-radius: 28px;
-      padding: 2.75rem 2rem;
+      padding: 2.5rem 2rem 2rem;
       text-align: center;
-      box-shadow: 0 18px 40px rgba(44, 53, 48, 0.07);
-      border: 2px solid var(--border-soft);
+      box-shadow: 0 18px 45px rgba(44, 53, 48, 0.08);
+      border: 4px solid var(--dino-border);
       position: relative;
       overflow: hidden;
     }
 
-    .invite-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 10px;
-      background: linear-gradient(90deg, var(--dino-green), var(--amber-gold), var(--terracotta));
+    .invite-header {
+      margin-bottom: 1.5rem;
     }
 
-    .badge {
-      display: inline-block;
-      background-color: var(--dino-light);
-      color: var(--dino-green);
+    .invite-header h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 2.3rem;
       font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
+      color: var(--dino-green);
+      letter-spacing: 0.02em;
+      line-height: 1.15;
       text-transform: uppercase;
-      padding: 0.45rem 1.1rem;
-      border-radius: 999px;
-      margin-bottom: 1.25rem;
     }
 
-    .hero-icon {
-      font-size: 3.5rem;
+    .invite-header p {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.25rem;
+      color: var(--terracotta);
+      font-weight: 600;
+      margin-top: 0.35rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* Dinosaur Illustration Box */
+    .dino-illustration-box {
+      background: linear-gradient(135deg, #EAF3EC 0%, #F5F9F6 100%);
+      border: 2.5px dashed var(--dino-border);
+      border-radius: 20px;
+      padding: 2rem 1rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .dino-emojis {
+      font-size: 3.8rem;
       margin-bottom: 0.5rem;
       display: block;
       animation: float 3s ease-in-out infinite;
@@ -312,78 +313,70 @@
       50% { transform: translateY(-6px); }
     }
 
-    h1 {
+    .tagline {
       font-family: 'Fredoka', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
+      font-size: 1.35rem;
       color: var(--dino-green);
-      line-height: 1.15;
-      margin-bottom: 0.5rem;
+      font-weight: 600;
     }
 
-    .subtitle {
-      font-size: 1.1rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-      line-height: 1.5;
-    }
-
-    .details-grid {
-      background: var(--bg-cream);
-      border-radius: 20px;
-      padding: 1.5rem;
+    /* 3-Column Details Grid matching Reference Layout */
+    .details-row {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-      text-align: left;
-      border: 1px solid var(--border-soft);
-    }
-
-    .detail-item {
-      display: flex;
-      align-items: flex-start;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
+      padding-top: 1.25rem;
+      border-top: 2px solid var(--border-soft);
+      text-align: center;
     }
 
-    .detail-icon {
-      font-size: 1.4rem;
-      background: var(--card-white);
+    .detail-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .detail-icon-circle {
+      font-size: 1.25rem;
+      background: #F4F7F4;
       width: 44px;
       height: 44px;
-      border-radius: 12px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-      flex-shrink: 0;
+      margin-bottom: 0.5rem;
+      border: 1px solid var(--dino-border);
     }
 
-    .detail-label {
-      font-size: 0.8rem;
+    .detail-title {
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      margin-bottom: 0.2rem;
+      letter-spacing: 0.08em;
+      color: var(--dino-green);
+      margin-bottom: 0.25rem;
     }
 
-    .detail-value {
-      font-size: 1.05rem;
+    .detail-text {
+      font-size: 0.92rem;
       font-weight: 600;
       color: var(--text-main);
+      line-height: 1.35;
     }
 
+    /* RSVP Card */
     .rsvp-card {
       background: var(--card-white);
       border-radius: 28px;
       padding: 2.25rem 2rem;
-      box-shadow: 0 18px 40px rgba(44, 53, 48, 0.07);
-      border: 2px solid var(--border-soft);
+      box-shadow: 0 18px 45px rgba(44, 53, 48, 0.08);
+      border: 4px solid var(--dino-border);
     }
 
     .rsvp-card h2 {
       font-family: 'Fredoka', sans-serif;
-      font-size: 1.75rem;
+      font-size: 1.8rem;
       color: var(--dino-green);
       margin-bottom: 0.35rem;
       text-align: center;
@@ -418,7 +411,7 @@
       width: 100%;
       padding: 0.85rem 1rem;
       border-radius: 14px;
-      border: 1.5px solid var(--border-soft);
+      border: 1.5px solid var(--dino-border);
       background: var(--bg-cream);
       font-family: inherit;
       font-size: 1rem;
@@ -455,7 +448,7 @@
       gap: 0.5rem;
       padding: 0.9rem;
       background: var(--bg-cream);
-      border: 1.5px solid var(--border-soft);
+      border: 1.5px solid var(--dino-border);
       border-radius: 14px;
       font-weight: 600;
       cursor: pointer;
@@ -464,7 +457,7 @@
     }
 
     .radio-option input:checked + .radio-label {
-      background: var(--dino-light);
+      background: #E4ECE7;
       border-color: var(--dino-green);
       color: var(--dino-green);
     }
@@ -486,7 +479,7 @@
     }
 
     button.submit-btn:hover {
-      background: #2D493C;
+      background: #2E4B3E;
       transform: translateY(-1px);
     }
 
@@ -520,11 +513,11 @@
       line-height: 1.5;
     }
 
-    @media (max-width: 480px) {
-      h1 { font-size: 2.1rem; }
-      .invite-card, .rsvp-card { padding: 2rem 1.35rem; }
-      .envelope-wrapper { width: 290px; height: 190px; }
+    @media (max-width: 540px) {
+      .details-row { grid-template-columns: 1fr; gap: 1.25rem; }
       .form-row { grid-template-columns: 1fr; }
+      .invite-header h1 { font-size: 1.9rem; }
+      .invite-card, .rsvp-card { padding: 1.75rem 1.25rem; }
     }
   </style>
 </head>
@@ -549,278 +542,19 @@
   </div>
 
   <main class="container" id="main-container">
+    <!-- Styled Invite Card Matching Reference Layout -->
     <section class="invite-card">
-      <span class="badge">Roar! You're Invited</span>
-      <span class="hero-icon">🦖🦕🌴</span>
-      <h1>Vihaan is<br>One-osaurus!</h1>
-      <p class="subtitle">Stomp on over for brunch, cake, and prehistoric fun as we celebrate Vihaan’s very first trip around the sun.</p>
-
-      <div class="details-grid">
-        <div class="detail-item">
-          <div class="detail-icon">📅</div>
-          <div>
-            <div class="detail-label">Date</div>
-            <div class="detail-value">Saturday, January 30, 2027</div>
-          </div>
-        </div>
-
-        <div class="detail-item">
-          <div class="detail-icon">⏰</div>
-          <div>
-            <div class="detail-label">Time</div>
-            <div class="detail-value">10:00 AM – 1:00 PM</div>
-          </div>
-        </div>
-
-        <div class="detail-item">
-          <div class="detail-icon">📍</div>
-          <div>
-            <div class="detail-label">Location</div>
-            <!-- UPDATE HERE: Replace with your venue name and address -->
-            <div class="detail-value">123 Celebration Lane, Your City, NJ</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="rsvp-card">
-      <div id="form-wrapper">
-        <h2>RSVP</h2>
-        <p class="rsvp-sub">Let us know if your little dino can make it!</p>
-
-        <form id="rsvp-form">
-          <div class="form-group">
-            <label for="name">Your Full Name *</label>
-            <input type="text" id="name" name="name" placeholder="e.g., Priya & Rahul Sharma" required />
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email Address (Optional — for confirmation)</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" />
-          </div>
-
-          <div class="form-group">
-            <label>Will you be joining us? *</label>
-            <div class="radio-group">
-              <label class="radio-option">
-                <input type="radio" name="attending" value="Yes" checked onchange="toggleGuests(true)" />
-                <span class="radio-label">🦖 Joyfully Accepts</span>
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="attending" value="No" onchange="toggleGuests(false)" />
-                <span class="radio-label">🍂 Regretfully Declines</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-row" id="guest-counts">
-            <div class="form-group">
-              <label for="adults">Adults</label>
-              <select id="adults" name="adults">
-                <option value="1">1 Adult</option>
-                <option value="2" selected>2 Adults</option>
-                <option value="3">3 Adults</option>
-                <option value="4">4 Adults</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="kids">Kids</label>
-              <select id="kids" name="kids">
-                <option value="0" selected>0 Kids</option>
-                <option value="1">1 Kid</option>
-                <option value="2">2 Kids</option>
-                <option value="3">3 Kids</option>
-                <option value="4">4 Kids</option>
-              </select>
-            </div>
-          </div>
-
-          <button type="submit" class="submit-btn" id="submit-btn">Send RSVP</button>
-        </form>
+      <div class="invite-header">
+        <h1>Vihaan is Turning One!</h1>
+        <p>A Rawr-some Adventure Ahead!</p>
       </div>
 
-      <div class="confirmation-box" id="confirmation-box">
-        <span class="check-icon">🦕</span>
-        <h3>Thank You for Your RSVP!</h3>
-        <p id="confirmation-message">We've recorded your response. Can't wait to celebrate!</p>
+      <div class="dino-illustration-box">
+        <span class="dino-emojis">🦖🦕🌴</span>
+        <div class="tagline">Let’s dig up some fun!</div>
       </div>
-    </section>
-  </main>
 
-  <script>
-    // UPDATE HERE: Paste your Google Apps Script Web App URL inside the quotes below
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxreZzZ3vtGEem2AZdjZ74ht5tZRKEoCW3fGzjaceRuWfsf3Rn8CahLLs2DQ8Lak1nn/exec";
-
-    const canvas = document.getElementById('fireworks-canvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-    let isOpened = false;
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    const colors = ['#D99B26', '#C86D51', '#3B5E4E', '#F3C65D', '#E2886B', '#527A68'];
-
-    function createFirecrackerBurst(x, y, count = 65) {
-      for (let i = 0; i < count; i++) {
-        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.25;
-        const speed = 3 + Math.random() * 8;
-        particles.push({
-          x: x,
-          y: y,
-          vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 1.5,
-          alpha: 1,
-          decay: 0.014 + Math.random() * 0.012,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          size: 3 + Math.random() * 3.5,
-          isSpark: Math.random() > 0.35
-        });
-      }
-    }
-
-    function launchCelebrationFirecrackers() {
-      const w = canvas.width;
-      const h = canvas.height;
-      createFirecrackerBurst(w * 0.5, h * 0.42, 85);
-      setTimeout(() => createFirecrackerBurst(w * 0.25, h * 0.32, 60), 220);
-      setTimeout(() => createFirecrackerBurst(w * 0.75, h * 0.35, 60), 380);
-      setTimeout(() => createFirecrackerBurst(w * 0.5, h * 0.25, 70), 580);
-      animateParticles();
-    }
-
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = particles.length - 1; i >= 0; i--) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-        p.vy += 0.14;
-        p.vx *= 0.97;
-        p.alpha -= p.decay;
-
-        if (p.alpha <= 0) {
-          particles.splice(i, 1);
-          continue;
-        }
-
-        ctx.save();
-        ctx.globalAlpha = p.alpha;
-        ctx.fillStyle = p.color;
-        ctx.beginPath();
-        if (p.isSpark) {
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        } else {
-          ctx.rect(p.x - p.size, p.y - p.size, p.size * 1.8, p.size * 1.8);
-        }
-        ctx.fill();
-        ctx.restore();
-      }
-
-      if (particles.length > 0) {
-        animationId = requestAnimationFrame(animateParticles);
-      } else {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      }
-    }
-
-    function openEnvelope() {
-      if (isOpened) return;
-      isOpened = true;
-
-      const envelope = document.getElementById('envelope');
-      const overlay = document.getElementById('envelope-overlay');
-      const container = document.getElementById('main-container');
-
-      envelope.classList.add('open');
-      setTimeout(() => { launchCelebrationFirecrackers(); }, 300);
-      setTimeout(() => {
-        overlay.classList.add('hidden');
-        container.classList.add('revealed');
-      }, 1150);
-    }
-
-    function replayAnimation() {
-      isOpened = false;
-      particles = [];
-      cancelAnimationFrame(animationId);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const envelope = document.getElementById('envelope');
-      const overlay = document.getElementById('envelope-overlay');
-      const container = document.getElementById('main-container');
-
-      container.classList.remove('revealed');
-      envelope.classList.remove('open');
-      overlay.classList.remove('hidden');
-
-      envelope.style.animation = 'none';
-      envelope.offsetHeight;
-      envelope.style.animation = null;
-
-      setTimeout(openEnvelope, 1600);
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(openEnvelope, 1600);
-    });
-
-    function toggleGuests(isAttending) {
-      const guestCounts = document.getElementById('guest-counts');
-      guestCounts.style.display = isAttending ? 'grid' : 'none';
-    }
-
-    document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const submitBtn = document.getElementById('submit-btn');
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending RSVP...";
-
-      const attendingValue = document.querySelector('input[name="attending"]:checked').value;
-      const payload = {
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        attending: attendingValue,
-        adults: attendingValue === "Yes" ? document.getElementById('adults').value : 0,
-        kids: attendingValue === "Yes" ? document.getElementById('kids').value : 0
-      };
-
-      fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(() => {
-        document.getElementById('form-wrapper').style.display = 'none';
-        const confirmBox = document.getElementById('confirmation-box');
-        const confirmMsg = document.getElementById('confirmation-message');
-        
-        if (attendingValue === "No") {
-          confirmMsg.textContent = "We'll miss you! Thanks for letting us know.";
-        } else if (payload.email) {
-          confirmMsg.textContent = "We've recorded your RSVP and sent a confirmation email to your inbox!";
-        } else {
-          confirmMsg.textContent = "We've successfully recorded your RSVP. See you there!";
-        }
-        confirmBox.style.display = 'block';
-        launchCelebrationFirecrackers();
-      })
-      .catch((error) => {
-        alert("Something went wrong submitting your RSVP. Please try again.");
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Send RSVP";
-      });
-    });
-  </script>
-</body>
-</html>
+      <div class="details-row">
+        <div class="detail-box">
+          <div class="detail-icon-circle">📅</div>
+          <div class="detail-title">When
