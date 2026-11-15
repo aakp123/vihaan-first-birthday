@@ -557,4 +557,264 @@
       <div class="details-row">
         <div class="detail-box">
           <div class="detail-icon-circle">📅</div>
-          <div class="detail-title">When
+          <div class="detail-title">When</div>
+          <div class="detail-text">Saturday,<br>Jan 30, 2027</div>
+        </div>
+
+        <div class="detail-box">
+          <div class="detail-icon-circle">⏰</div>
+          <div class="detail-title">Time</div>
+          <div class="detail-text">10:00 AM –<br>1:00 PM</div>
+        </div>
+
+        <div class="detail-box">
+          <div class="detail-icon-circle">📍</div>
+          <div class="detail-title">Where</div>
+          <!-- UPDATE HERE: Replace with your venue name & address -->
+          <div class="detail-text">123 Celebration Lane, Franklin Township, NJ</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP Form Card -->
+    <section class="rsvp-card">
+      <div id="form-wrapper">
+        <h2>RSVP</h2>
+        <p class="rsvp-sub">Let us know if your little dino can make it!</p>
+
+        <form id="rsvp-form">
+          <div class="form-group">
+            <label for="name">Your Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="e.g., Priya & Rahul Sharma" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address (Optional — for confirmation)</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label>Will you be joining us? *</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="attending" value="Yes" checked onchange="toggleGuests(true)" />
+                <span class="radio-label">🦖 Joyfully Accepts</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="attending" value="No" onchange="toggleGuests(false)" />
+                <span class="radio-label">🍂 Regretfully Declines</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-row" id="guest-counts">
+            <div class="form-group">
+              <label for="adults">Adults</label>
+              <select id="adults" name="adults">
+                <option value="1">1 Adult</option>
+                <option value="2" selected>2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="kids">Kids</label>
+              <select id="kids" name="kids">
+                <option value="0" selected>0 Kids</option>
+                <option value="1">1 Kid</option>
+                <option value="2">2 Kids</option>
+                <option value="3">3 Kids</option>
+                <option value="4">4 Kids</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submit-btn">Send RSVP</button>
+        </form>
+      </div>
+
+      <div class="confirmation-box" id="confirmation-box">
+        <span class="check-icon">🦕</span>
+        <h3>Thank You for Your RSVP!</h3>
+        <p id="confirmation-message">We've recorded your response. Can't wait to celebrate!</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // UPDATE HERE: Paste your Google Apps Script Web App URL inside the quotes below
+    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+    const canvas = document.getElementById('fireworks-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+    let isOpened = false;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const colors = ['#D99B26', '#C86D51', '#3B5E4E', '#F3C65D', '#E2886B', '#527A68'];
+
+    function createFirecrackerBurst(x, y, count = 65) {
+      for (let i = 0; i < count; i++) {
+        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.25;
+        const speed = 3 + Math.random() * 8;
+        particles.push({
+          x: x,
+          y: y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 1.5,
+          alpha: 1,
+          decay: 0.014 + Math.random() * 0.012,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          size: 3 + Math.random() * 3.5,
+          isSpark: Math.random() > 0.35
+        });
+      }
+    }
+
+    function launchCelebrationFirecrackers() {
+      const w = canvas.width;
+      const h = canvas.height;
+      createFirecrackerBurst(w * 0.5, h * 0.42, 85);
+      setTimeout(() => createFirecrackerBurst(w * 0.25, h * 0.32, 60), 220);
+      setTimeout(() => createFirecrackerBurst(w * 0.75, h * 0.35, 60), 380);
+      setTimeout(() => createFirecrackerBurst(w * 0.5, h * 0.25, 70), 580);
+      animateParticles();
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.14;
+        p.vx *= 0.97;
+        p.alpha -= p.decay;
+
+        if (p.alpha <= 0) {
+          particles.splice(i, 1);
+          continue;
+        }
+
+        ctx.save();
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        if (p.isSpark) {
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        } else {
+          ctx.rect(p.x - p.size, p.y - p.size, p.size * 1.8, p.size * 1.8);
+        }
+        ctx.fill();
+        ctx.restore();
+      }
+
+      if (particles.length > 0) {
+        animationId = requestAnimationFrame(animateParticles);
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    function openEnvelope() {
+      if (isOpened) return;
+      isOpened = true;
+
+      const envelope = document.getElementById('envelope');
+      const overlay = document.getElementById('envelope-overlay');
+      const container = document.getElementById('main-container');
+
+      envelope.classList.add('open');
+      setTimeout(() => { launchCelebrationFirecrackers(); }, 300);
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        container.classList.add('revealed');
+      }, 1150);
+    }
+
+    function replayAnimation() {
+      isOpened = false;
+      particles = [];
+      cancelAnimationFrame(animationId);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const envelope = document.getElementById('envelope');
+      const overlay = document.getElementById('envelope-overlay');
+      const container = document.getElementById('main-container');
+
+      container.classList.remove('revealed');
+      envelope.classList.remove('open');
+      overlay.classList.remove('hidden');
+
+      envelope.style.animation = 'none';
+      envelope.offsetHeight;
+      envelope.style.animation = null;
+
+      setTimeout(openEnvelope, 1600);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(openEnvelope, 1600);
+    });
+
+    function toggleGuests(isAttending) {
+      const guestCounts = document.getElementById('guest-counts');
+      guestCounts.style.display = isAttending ? 'grid' : 'none';
+    }
+
+    document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending RSVP...";
+
+      const attendingValue = document.querySelector('input[name="attending"]:checked').value;
+      const payload = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        attending: attendingValue,
+        adults: attendingValue === "Yes" ? document.getElementById('adults').value : 0,
+        kids: attendingValue === "Yes" ? document.getElementById('kids').value : 0
+      };
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        document.getElementById('form-wrapper').style.display = 'none';
+        const confirmBox = document.getElementById('confirmation-box');
+        const confirmMsg = document.getElementById('confirmation-message');
+        
+        if (attendingValue === "No") {
+          confirmMsg.textContent = "We'll miss you! Thanks for letting us know.";
+        } else if (payload.email) {
+          confirmMsg.textContent = "We've recorded your RSVP and sent a confirmation email to your inbox!";
+        } else {
+          confirmMsg.textContent = "We've successfully recorded your RSVP. See you there!";
+        }
+        confirmBox.style.display = 'block';
+        launchCelebrationFirecrackers();
+      })
+      .catch((error) => {
+        alert("Something went wrong submitting your RSVP. Please try again.");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send RSVP";
+      });
+    });
+  </script>
+</body>
+</html>
