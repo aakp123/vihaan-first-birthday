@@ -214,7 +214,28 @@
       radios.forEach(r => r.setAttribute('aria-invalid', String(!checked)));
       return checked;
     }
-    radios.forEach(r => r.addEventListener('change', validateAttendance));
+    const adultsSelect = document.getElementById('adults');
+    const kidsSelect = document.getElementById('kids');
+    function updateGuestDropdowns() {
+      const declining = form.querySelector('input[name="attending"][value="No"]').checked;
+      [adultsSelect, kidsSelect].forEach(select => {
+        if (declining) {
+          select.value = '0';
+          select.disabled = true;
+        } else {
+          select.disabled = false;
+          // Remove the forced zero when switching back to accepting.
+          if (select.value === '0' && select.dataset.forcedZero === 'true') select.value = '';
+        }
+        select.dataset.forcedZero = declining ? 'true' : 'false';
+        const spec = fields.find(field => field.id === select.id);
+        setError(spec.group, spec.error, '', select);
+      });
+    }
+    radios.forEach(r => r.addEventListener('change', () => {
+      validateAttendance();
+      updateGuestDropdowns();
+    }));
     const emailEl = document.getElementById('email');
     function validateEmail() {
       const valid = !emailEl.value.trim() || emailEl.validity.valid;
@@ -271,10 +292,11 @@
           body: JSON.stringify(response)
         });
         // An opaque response cannot prove Apps Script saved the RSVP.
-        status.textContent = '🦕 Your RSVP was sent! Please note that this page cannot independently verify it was saved. If you provided an email, look for your confirmation message.';
+        status.textContent = 'Your RSVP was sent! If you provided an email, look for your confirmation message.';
         status.className = 'banner show';
         celebrateRSVP();
         form.reset();
+        updateGuestDropdowns();
         fields.forEach(spec => setError(spec.group, spec.error, '', document.getElementById(spec.id)));
         setError('emailGroup', 'emailError', '', emailEl);
         validateAttendanceSilently();
